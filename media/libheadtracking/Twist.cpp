@@ -15,8 +15,13 @@
  */
 
 #include "media/Twist.h"
+<<<<<<< HEAD
 
 #include "QuaternionUtil.h"
+=======
+#include <android-base/stringprintf.h>
+#include "media/QuaternionUtil.h"
+>>>>>>> 8702c31c44 (Spatial Audio: Improve Head-Tracking prediction)
 
 namespace android {
 namespace media {
@@ -37,6 +42,12 @@ std::ostream& operator<<(std::ostream& os, const Twist3f& twist) {
     os << "translation: " << twist.translationalVelocity().transpose()
        << " rotation vector: " << twist.rotationalVelocity().transpose();
     return os;
+}
+
+std::string Twist3f::toString() const {
+    return base::StringPrintf("[%0.2f, %0.2f, %0.2f, %0.2f, %0.2f, %0.2f]",
+        mTranslationalVelocity[0], mTranslationalVelocity[1], mTranslationalVelocity[2],
+        mRotationalVelocity[0], mRotationalVelocity[1], mRotationalVelocity[2]);
 }
 
 }  // namespace media
