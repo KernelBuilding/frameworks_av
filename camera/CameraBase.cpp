@@ -161,7 +161,12 @@ const sp<::android::hardware::ICameraService> CameraBase<TCam, TCamTraits>::getC
 template <typename TCam, typename TCamTraits>
 sp<TCam> CameraBase<TCam, TCamTraits>::connect(int cameraId,
                                                const String16& clientPackageName,
+<<<<<<< HEAD
                                                int clientUid, int clientPid, int targetSdkVersion)
+=======
+                                               int clientUid, int clientPid, int targetSdkVersion,
+                                               bool overrideToPortrait, bool forceSlowJpegMode)
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
 {
     ALOGV("%s: connect", __FUNCTION__);
     sp<TCam> c = new TCam(cameraId);
@@ -171,8 +176,16 @@ sp<TCam> CameraBase<TCam, TCamTraits>::connect(int cameraId,
     binder::Status ret;
     if (cs != nullptr) {
         TCamConnectService fnConnectService = TCamTraits::fnConnectService;
+<<<<<<< HEAD
         ret = (cs.get()->*fnConnectService)(cl, cameraId, clientPackageName, clientUid,
                                                clientPid, targetSdkVersion, /*out*/ &c->mCamera);
+=======
+        ALOGI("Connect camera (legacy API) - overrideToPortrait %d, forceSlowJpegMode %d",
+                overrideToPortrait, forceSlowJpegMode);
+        ret = (cs.get()->*fnConnectService)(cl, cameraId, clientPackageName, clientUid,
+                clientPid, targetSdkVersion, overrideToPortrait, forceSlowJpegMode,
+                 /*out*/ &c->mCamera);
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
     }
     if (ret.isOk() && c->mCamera != nullptr) {
         IInterface::asBinder(c->mCamera)->linkToDeath(c);

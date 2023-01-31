@@ -58,7 +58,11 @@ struct CameraTraits<Camera>
     typedef ::android::hardware::ICameraClient TCamCallbacks;
     typedef ::android::binder::Status(::android::hardware::ICameraService::*TCamConnectService)
         (const sp<::android::hardware::ICameraClient>&,
+<<<<<<< HEAD
         int, const String16&, int, int, int,
+=======
+        int, const String16&, int, int, int, bool, bool,
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
         /*out*/
         sp<::android::hardware::ICamera>*);
     static TCamConnectService     fnConnectService;
@@ -81,7 +85,12 @@ public:
     static  sp<Camera>  create(const sp<::android::hardware::ICamera>& camera);
     static  sp<Camera>  connect(int cameraId,
                                 const String16& clientPackageName,
+<<<<<<< HEAD
                                 int clientUid, int clientPid, int targetSdkVersion);
+=======
+                                int clientUid, int clientPid, int targetSdkVersion,
+                                bool overrideToPortrait, bool forceSlowJpegMode);
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
 
             virtual     ~Camera();
 

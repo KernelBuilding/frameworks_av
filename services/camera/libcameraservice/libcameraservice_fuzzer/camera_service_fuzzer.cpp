@@ -320,7 +320,13 @@ void CameraFuzzer::invokeCameraAPIs() {
 
         rc = mCameraService->connect(this, cameraId, String16(),
                 android::CameraService::USE_CALLING_UID, android::CameraService::USE_CALLING_PID,
+<<<<<<< HEAD
                 /*targetSdkVersion*/__ANDROID_API_FUTURE__, &cameraDevice);
+=======
+                /*targetSdkVersion*/__ANDROID_API_FUTURE__, /*overrideToPortrait*/true,
+                /*forceSlowJpegMode*/false,
+                &cameraDevice);
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
         if (!rc.isOk()) {
             // camera not connected
             return;

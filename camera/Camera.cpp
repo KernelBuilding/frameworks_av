@@ -71,10 +71,18 @@ Camera::~Camera()
 }
 
 sp<Camera> Camera::connect(int cameraId, const String16& clientPackageName,
+<<<<<<< HEAD
         int clientUid, int clientPid, int targetSdkVersion)
 {
     return CameraBaseT::connect(cameraId, clientPackageName, clientUid,
             clientPid, targetSdkVersion);
+=======
+        int clientUid, int clientPid, int targetSdkVersion, bool overrideToPortrait,
+        bool forceSlowJpegMode)
+{
+    return CameraBaseT::connect(cameraId, clientPackageName, clientUid,
+            clientPid, targetSdkVersion, overrideToPortrait, forceSlowJpegMode);
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
 }
 
 status_t Camera::reconnect()

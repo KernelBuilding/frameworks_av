@@ -111,7 +111,13 @@ public:
             int clientPid,
             uid_t clientUid,
             int servicePid,
+<<<<<<< HEAD
             bool overrideForPerfClass);
+=======
+            bool overrideForPerfClass,
+            bool overrideToPortrait,
+            bool forceSlowJpegMode);
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
 
     virtual ~Camera2Client();
 

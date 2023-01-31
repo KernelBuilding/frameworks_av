@@ -119,7 +119,12 @@ public:
 
     static sp<TCam>      connect(int cameraId,
                                  const String16& clientPackageName,
+<<<<<<< HEAD
                                  int clientUid, int clientPid, int targetSdkVersion);
+=======
+                                 int clientUid, int clientPid, int targetSdkVersion,
+                                 bool overrideToPortrait, bool forceSlowJpegMode);
+>>>>>>> 4094e1f166 (DO NOT MERGE Force slowJpegMode on certain camera1 apps)
     virtual void         disconnect();
 
     void                 setListener(const sp<TCamListener>& listener);
