@@ -154,7 +154,11 @@ status_t CameraSource::isCameraAvailable(
 
     if (camera == 0) {
         mCamera = Camera::connect(cameraId, clientName, clientUid, clientPid,
+<<<<<<< HEAD
                 /*targetSdkVersion*/__ANDROID_API_FUTURE__);
+=======
+                /*targetSdkVersion*/__ANDROID_API_FUTURE__, /*overrideToPortrait*/false);
+>>>>>>> 7b14d5e6c4 (Turn off overrideToPortrait where not needed.)
         if (mCamera == 0) return -EBUSY;
         mCameraFlags &= ~FLAGS_HOT_CAMERA;
     } else {

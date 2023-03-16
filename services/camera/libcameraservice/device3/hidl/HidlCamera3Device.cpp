@@ -162,7 +162,12 @@ status_t HidlCamera3Device::initialize(sp<CameraProviderManager> manager,
         return res;
     }
 
+<<<<<<< HEAD
     res = manager->getCameraCharacteristics(mId.string(), mOverrideForPerfClass, &mDeviceInfo);
+=======
+    res = manager->getCameraCharacteristics(mId.string(), mOverrideForPerfClass, &mDeviceInfo,
+            /*overrideToPortrait*/false);
+>>>>>>> 7b14d5e6c4 (Turn off overrideToPortrait where not needed.)
     if (res != OK) {
         SET_ERR_L("Could not retrieve camera characteristics: %s (%d)", strerror(-res), res);
         session->close();
@@ -176,7 +181,12 @@ status_t HidlCamera3Device::initialize(sp<CameraProviderManager> manager,
         for (auto& physicalId : physicalCameraIds) {
             // Do not override characteristics for physical cameras
             res = manager->getCameraCharacteristics(
+<<<<<<< HEAD
                     physicalId, /*overrideForPerfClass*/false, &mPhysicalDeviceInfoMap[physicalId]);
+=======
+                    physicalId, /*overrideForPerfClass*/false, &mPhysicalDeviceInfoMap[physicalId],
+                    /*overrideToPortrait*/false);
+>>>>>>> 7b14d5e6c4 (Turn off overrideToPortrait where not needed.)
             if (res != OK) {
                 SET_ERR_L("Could not retrieve camera %s characteristics: %s (%d)",
                         physicalId.c_str(), strerror(-res), res);
