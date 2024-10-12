@@ -36,8 +36,6 @@ cc_library {
     export_header_lib_headers: [
         "libeigen",
     ],
-<<<<<<< HEAD
-=======
     cflags: [
         "-Wthread-safety",
     ],
@@ -47,7 +45,6 @@ cc_library {
             cflags: ["-DENABLE_VERIFICATION"],
         },
     },
->>>>>>> 8702c31c44 (Spatial Audio: Improve Head-Tracking prediction)
 }
 
 cc_library {
