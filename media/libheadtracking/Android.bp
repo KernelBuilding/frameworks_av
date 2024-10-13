@@ -35,6 +35,15 @@ cc_library {
     export_header_lib_headers: [
         "libeigen",
     ],
+    cflags: [
+        "-Wthread-safety",
+    ],
+    product_variables: {
+        debuggable: {
+            // enable experiments only in userdebug and eng builds
+            cflags: ["-DENABLE_VERIFICATION"],
+        },
+    },
 }
 
 cc_library {
