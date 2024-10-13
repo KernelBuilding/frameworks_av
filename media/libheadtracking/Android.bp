@@ -35,8 +35,6 @@ cc_library {
     export_header_lib_headers: [
         "libeigen",
     ],
-<<<<<<< HEAD
-=======
     cflags: [
         "-Wthread-safety",
     ],
@@ -46,7 +44,6 @@ cc_library {
             cflags: ["-DENABLE_VERIFICATION"],
         },
     },
->>>>>>> f505e20e43... av: fix remaining conflict
 }
 
 cc_library {
